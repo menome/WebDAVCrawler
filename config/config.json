@@ -1,0 +1,19 @@
+{
+  "port": 3005,
+  "nickname": "Development WebDAV Crawler",
+  "rabbit": {
+    "enable":true,
+    "url": "amqp://rabbitmq:rabbitmq@localhost:5672?heartbeat=3600",
+    "routingKey": "syncevents.crawler",
+    "exchange": "syncevents"
+  },
+  "crawler": {
+    "findRegex": ".*\\.\\(pdf\\|docx\\|doc\\|pptx\\|txt\\|jpg\\|png\\)$",
+    "regexWhitelist": [],
+    "regexFilenameWhitelist": [],
+    "librarykey": "sambadav",
+    "host": "http://localhost:80",
+    "username": "user",
+    "password": ""
+  }
+}
