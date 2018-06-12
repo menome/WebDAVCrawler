@@ -38,19 +38,18 @@ module.exports = function crawler(bot) {
 
         return new Promise((resolve,reject) => {
           async.eachOfSeries(nextDirs, (itm,key,cb) => {
-            console.log(itm.filename);
             getDirLevel(itm.filename).then(cb);
           }, (err) => {
             if(err) reject(err)
             resolve()
           })
         })
-      })
+      }).catch((err) => {console.error(err)});
     }
 
     return getDirLevel("/").then(() => {
       console.log("Done")
       return crawledCount
-    });
+    })
   }
 }
